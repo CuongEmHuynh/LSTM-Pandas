@@ -14,8 +14,6 @@ class LSTMModel(nn.Module):
     def forward(self, x):
         out, _ = self.lstm(x)
         out = out[:, -1, :]  # Lấy output của bước thời gian cuối cùng
-        print(out.shape)
-        
         out = self.fc(out)
         return out
 
